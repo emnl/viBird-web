@@ -1,0 +1,37 @@
+<div data-role="header">
+  <h1>Lists</h1>
+  <a href="/logout" data-icon="delete" class="ui-btn-right" rel="external">Logout</a>
+  <div data-role="navbar">
+  		<ul>
+  			<li><a href="/feed" data-back="true">Feed</a></li>
+  			<li><a class="ui-btn-active">Lists</a></li>
+  		</ul>
+  	</div>
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+    <li data-role="list-divider">Your lists</li> 
+    <% for list in @mylists %>
+    
+    <li>
+      <h3><a href="/feed/?user=<%= list.user.screen_name %>&slug=<%= list.slug %>" data-back="true"><%= list.name %></a></h3> 
+      <p><strong><%= list.full_name %></strong></p> 
+      <p><%= list.description %></p> 
+      <p class="ui-li-aside"><strong><%= list.mode.capitalize %></strong><br />Following <strong><%= list.member_count %></strong><br />Subscribers <strong><%= list.subscriber_count %></strong></p>
+    </li>
+  
+    <% end %>
+    <li data-role="list-divider">Subscribed lists</li> 
+    <% for list in @sublists %>
+      
+    <li>
+      <h3><a href="/feed/?user=<%= list.user.screen_name %>&slug=<%= list.slug %>" data-back="true"><%= list.name %></a></h3> 
+      <p><strong><%= list.full_name %></strong></p> 
+      <p><%= list.description %></p> 
+      <p class="ui-li-aside"><strong><%= list.mode.capitalize %></strong><br />Following <strong><%= list.member_count %></strong><br />Subscribers <strong><%= list.subscriber_count %></strong></p>
+    </li>
+  
+    <% end %>
+  </ul>
+</div>

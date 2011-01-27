@@ -1,0 +1,14 @@
+<div data-role="content" data-theme="c"> 
+    <table id="dialog-info">
+      <tr>
+        <td rowspan="2"><img src="<%= profile_image(@tweet.user.profile_image_url, :reasonably_small) %>" /></td>
+        <td><h2><%= @tweet.text %></h2></td>
+      </tr>
+      <tr><td valign="top"><p>- <strong><%= @tweet.user.name %></strong> (@<%= @tweet.user.screen_name %>)</p></td></tr>
+    </table>
+      <a href="<%= twitter_url((@tweet.user.screen_name + '/status/' + @tweet.id.to_s)) %>" data-role="button" data-theme="b" target="_blank">View tweet</a>
+      <a href="<%= twitter_url(@tweet.user.screen_name) %>" data-role="button" data-theme="b" target="_blank">Show profile</a>
+      <a href="<%= find_link(@tweet.text) %>" data-role="button" data-theme="b" target="_blank">View link</a>   
+      <a data-role="button" data-theme="b">Find similar tweets</a>   
+      <a onclick="history(-1)" data-role="button" data-theme="c">Cancel</a>    
+    </div>

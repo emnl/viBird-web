@@ -1,0 +1,17 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: vibird_development
+  username: root
+  
+test:
+  adapter: mysql
+  encoding: utf8
+  database: vibird_test
+  username: root
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: vibird_production
+  username: root

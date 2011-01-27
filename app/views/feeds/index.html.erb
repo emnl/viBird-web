@@ -1,0 +1,25 @@
+<div data-role="header">
+  <h1>Feed</h1>
+  <a href="/logout" data-icon="delete" class="ui-btn-right" rel="external">Logout</a>
+  <div data-role="navbar">
+  		<ul>
+  			<li><a class="ui-btn-active">Feed</a></li>
+  			<li><a href="/lists">Lists</a></li>
+  		</ul>
+  	</div>
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+    <li data-role="list-divider"><%= @title %></li> 
+    <% for tweet in @feed %>
+  
+    <li>
+      <img src="<%= profile_image(tweet.user.profile_image_url, :reasonably_small) %>" />
+      <h3 class="ui-li-heading"><a href="/dialog/?tweetid=<%= tweet.id %>" class="ui-link-inherit" data-rel="dialog" data-transition="pop"><%= tweet.text %></a></h3> 
+      <p class="ui-li-desc"><strong><%= tweet.user.name %> (@<%= tweet.user.screen_name %>)</strong></p>
+    </li>
+  
+    <% end %>
+  </ul>
+</div>
